@@ -42,11 +42,11 @@ INSTALLED_APPS = [
 
 		# 3rd Party
     'rest_framework',
-		'drf_yasg',
+	'drf_yasg',
 
 		# Local
-    'CatchopsApp',
-    'AccountApp',
+    'CatchopsApp.apps.CatchopsAppConfig',
+    'AccountApp.apps.CatchopsAppConfig',
 
 ]
 
