@@ -3,8 +3,12 @@ from django.db import models
 # Create your models here.
 
 from django.contrib.auth.models import  AbstractBaseUser,BaseUserManager
+from django.conf import settings
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from rest_framework.authtoken.models import Token
 
-class MyAccountManager(BaseUserManager):
+class MyAccountManage(BaseUserManager):
     def create_user(self,email,username,password=None):
         if not email:
             raise ValueError("Username must have an Email address")
@@ -43,7 +47,7 @@ class Account(AbstractBaseUser):
     USERNAME_FIELD='email'
     REQUIRED_FIELDS=['username',]
 
-    objects=MyAccountManager()
+    objects=MyAccountManage()
 
     def __str__(self):
         return self.email
@@ -52,10 +56,4 @@ class Account(AbstractBaseUser):
         return self.is_admin
 
     def has_module_perms(self, app_label):
-        return True
-
-@receiver(post_save, sender=settings.AUTH_USER_MODEL)
-def create_auth_token(sender, instance=None, created=False, **kwargs):
-    if created:
-        Token.objects.create(user=instance)
         return True

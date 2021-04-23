@@ -46,7 +46,7 @@ INSTALLED_APPS = [
 
 	# Local
     'CatchopsApp.apps.CatchopsAppConfig',
-    'AccountApp.apps.CatchopsAppConfig',
+    'AccountApp.apps.AccountappConfig',
 
 ]
 
