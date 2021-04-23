@@ -3,6 +3,22 @@ from rest_framework import serializers
 # from django.contrib.auth.models import User
 from rest_framework_simplejwt.tokens import RefreshToken
 
+class UserSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Account
+		fields = '__all__'
+
+class UserSerializerWithToken(UserSerializer):
+	token = serializers.SerializerMethodField(read_only=True)
+	class Meta:
+		model = Account
+		fields = ['id', 'username', 'email','is_admin','is_active','is_staff', 'is_superuser','token']
+		# exclude = ['refresh', 'access']
+	
+	def get_token(self, obj):
+		token = RefreshToken.for_user(obj)
+		return str(token.access_token)
+
 
 class RegistrationSerializer(serializers.ModelSerializer):
 	password2=serializers.CharField(style={'input_type':'password'},write_only=True)
