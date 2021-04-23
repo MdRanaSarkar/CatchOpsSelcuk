@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-from rest_framework import status
-from  rest_framework.response import  Response
-
-from rest_framework.decorators import  api_view
-from AccountApp.api.serializers import RegistrationSerializer
-from rest_framework.authtoken.models import Token
-=======
 
 from AccountApp.api.serializers import (RegistrationSerializer, UserSerializer,
                                         UserSerializerWithToken)
@@ -46,7 +38,6 @@ def getUserProfile(request):
     return Response(serializer.data)
 
 
->>>>>>> 88043f25a323dcb3e130d0f3c017b947168ddef4
 
 @api_view(['POST',])
 def registration_view(request):
@@ -58,11 +49,8 @@ def registration_view(request):
             data['response']="successfully added data"
             data['email']=account.email
             data['username']=account.username
-<<<<<<< HEAD
             token = Token.objects.get(user=account).key
             data['token']=token
-=======
->>>>>>> 88043f25a323dcb3e130d0f3c017b947168ddef4
 
         else:
             data=serializer.errors

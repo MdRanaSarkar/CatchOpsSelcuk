@@ -9,16 +9,10 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-<<<<<<< HEAD
-import django_heroku
-from pathlib import Path
-
-=======
 from datetime import timedelta
 from pathlib import Path
 
 import django_heroku
->>>>>>> 88043f25a323dcb3e130d0f3c017b947168ddef4
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,32 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
-    'rest_framework',
-    'CatchopsApp',
-    'AccountApp',
-    'rest_framework.authtoken'
 
-]
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-
-    ]
-}
-=======
-
-		# 3rd Party
+	# 3rd Party
     'rest_framework',
 	'drf_yasg',
 
-		# Local
+	# Local
     'CatchopsApp.apps.CatchopsAppConfig',
     'AccountApp.apps.CatchopsAppConfig',
 
 ]
 
->>>>>>> 88043f25a323dcb3e130d0f3c017b947168ddef4
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -157,9 +136,6 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-<<<<<<< HEAD
-django_heroku.settings(locals())
-=======
 
 
 
@@ -201,4 +177,3 @@ SIMPLE_JWT = {
 
 
 django_heroku.settings(locals())
->>>>>>> 88043f25a323dcb3e130d0f3c017b947168ddef4
